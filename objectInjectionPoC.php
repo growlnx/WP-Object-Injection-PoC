@@ -22,20 +22,20 @@ class ObjectInjection
 
   function notEmptyArgs() {
     if($this->cmd != "" and $this->fcn != "") {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
   function __destruct() {
     if($this->notEmptyArgs()) {
-     $this->fcn($this->cmd);
+      ($this->fcn)($this->cmd);
     }
   }
 
   function __wakeup() {
-    if($this->cmd != "") {
-      $this->fcn($this->cmd);
+    if($this->notEmptyArgs()) {
+      ($this->fcn)($this->cmd);
     }
   }
 
