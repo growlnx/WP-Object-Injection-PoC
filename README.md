@@ -1,2 +1,2 @@
-# WP-Object-Injection-PoC
+# WP Object Injection Proof of Concept
 This is a simple plugin to make PoC of PHP Object Injection in Wordpress.
