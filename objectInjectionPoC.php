@@ -27,6 +27,11 @@ class ObjectInjection
     return false;
   }
 
+  function __construct($fcn, $cmd) {
+    $this->fcn = $fcn;
+    $this->cmd = $cmd;
+  }
+
   function __destruct() {
     if($this->notEmptyArgs()) {
       ($this->fcn)($this->cmd);
