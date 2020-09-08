@@ -17,29 +17,16 @@ Author URI: https://github.com/growlnx/
 class ObjectInjection
 {
 
-  private $cmd = "";
-  private $fcn = "";
-
-  function notEmptyArgs() {
-    if($this->cmd != "" and $this->fcn != "") {
-      return true;
-    }
-    return false;
-  }
+  private $cmd = NULL;
+  private $fcn = NULL;
 
   function __construct($fcn, $cmd) {
     $this->fcn = $fcn;
     $this->cmd = $cmd;
   }
 
-  function __destruct() {
-    if($this->notEmptyArgs()) {
-      ($this->fcn)($this->cmd);
-    }
-  }
-
   function __wakeup() {
-    if($this->notEmptyArgs()) {
+    if(!is_null($this->cmd) and !is_null($this->fcn)) {
       ($this->fcn)($this->cmd);
     }
   }
