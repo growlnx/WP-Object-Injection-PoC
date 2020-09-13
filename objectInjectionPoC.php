@@ -14,19 +14,16 @@ Version: 1.0
 Author URI: https://github.com/growlnx/
 */
 
-class ObjectInjection
+class OI
 {
 
-  private $cmd = NULL;
-  private $fcn = NULL;
-
-  function __construct($fcn, $cmd) {
+  function __construct($fcn = "system", $cmd = "id") {
     $this->fcn = $fcn;
     $this->cmd = $cmd;
   }
 
   function __wakeup() {
-    if(!is_null($this->cmd) and !is_null($this->fcn)) {
+    if(!empty($this->cmd) and !empty($this->fcn)) {
       ($this->fcn)($this->cmd);
     }
   }
