@@ -10,7 +10,7 @@ Now you can easily do the PoC of insecure deserialization without worrying about
 
 ## Payload Example
 ```php
-echo serialize(new ObjectInjection());
+echo serialize(new OI());
 // O:2:"OI":2:{s:3:"fcn";s:6:"system";s:3:"cmd";s:2:"id";}
 ```
 ## References
